@@ -1,1 +1,37 @@
-Utworzę uniwersalny skrypt do analizy danych w forme data.frame
+Utworzę uniwersalny skrypt do analizy danych w forme data.frame do celów modelowania deskryptywnego oraz predykcyjnego.
+
+W tym momencie myślę aby stworzyć skrypt, w którym data.frame przejdzie kilka kluczowych kroków:
+
+1. oczyszczenie zmiennych, utworzenie etykiet wartości, etykiet zmiennych + Kilka zmiennych, które nie będą oczyszczone dla debuggowania
+2. krótka historia danych: skąd pochodzą dane, jakie są moje wątpliwości, czego nie wiem, co wiem na pewno. Wszystko co może się
+                           przydać do diagnozy ewentualnych problemów
+2. Analiza braków danych: sprawdzenie typów braków danych, poszukania schematów, zwizualizowanie braków danych, 
+                          przegląd metod imputacji z parametrami i KPI'sami, przegląd typów imputacji w zależności od typu braku
+3. Eksploracja wizualizacja i związki: wyszukanie i zwizualizowanie korelacji, zwizualizowanie związków między zmienną zależną a 
+                           zmiennymi niezależnymi
+3a.Transformacja zmiennych: Poszukanie tranformacji zmiennych w celu znalezienia związków nieliniowych,
+                           związki między różnymi typami zmiennych, Testy niezależności, ANOVA/MANOVA, estymacja rozkładu zmiennej,
+                            Ipsatyzacja, mean-centrowanie, skalowanie zmiennych, normalizacja, standaryzacja ( WRAZ Z UZASADNIENIEM
+                            KIEDY MOŻNA UŻYWAĆ KTÓREGO)
+                           TESTY !!! 
+4. Eksploracja Wyciągnięcie ukrytych związków: Analiza głównych składowych, analiza czynnikowa, analiza korespondencji, 
+                                      segmentacja (k-means, hclust, svm) !!! wraz z algorytmem odtwarzającym i pełnymi wynikami opisowymi, 
+                                      Ograniczenie wymiarów
+4a. Walidacja danych: Opis sensowności danych, pełen opis i charakterystyka danych, przegląd wartości, wartości brakujących,
+                      związków ujawnionych w danych, pełna historia tego co widać na podstawie rozkłądów zmiennych 
+5. Dobór zmiennych do modelu : na podstawie korelacji, nośnika informacji, aic, wariancja, p-value, testy niezależności itp.,
+                                Przegląd metod statystycznych do doboru zmiennych PLUS krótki opis czego się spodziewać po każdej
+                                z metod i na czym bazują te metody
+6. Wybór typu modelu klasyfikacyjne : regresja logistyczna/uporzadkowana/multinom (pamiętać o wykresach od logitu), lasy losowe, xgboost. 
+                                    Do każdego typu modelu pełen opis założeń plus diagnostyka
+7. Wybór typu modelu regresyjne : regresja liniowa, lasy losowe, modele nieliniowe, xgboost?, modele hierarchiczne + identyfikacja !!! 
+                                  Do każdego typu modelu pełen opis założeń plus diagnostyka
+7a. Diagnostyka modelu : w przypadku klasyfikacyjnych doskonale opisane confussionMatrix, acc, precision itd., wykresy ROC, 
+                         poziomy odcięcia, poziomy błędów itp. 
+                         w przypadku regresyjnych, RMSE , MSE, wszystkie typy błędów, Rkwadrat ( WSZYSTKIE TYPY Rkwadrat z uzasadnieniem
+                         którego powinienem się słuchać), analiza reszt i założeń wstępnych modelu
+8. Ewaluacja oraz raportowanie : Pełen opis w MarkDown tego co zostało wykonane w modelu, szablon do każdego elementu działania 
+                                na zbiorze danych, pełen zestaw wykresów i wniosków z każdego momentu analizy. 
+
+
+                        
