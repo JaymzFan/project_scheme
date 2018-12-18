@@ -19,17 +19,19 @@ W tym momencie myślę aby stworzyć skrypt, w którym data.frame przejdzie kilk
                                       Ograniczenie wymiarów
 4a. Walidacja danych: Opis sensowności danych, pełen opis i charakterystyka danych, przegląd wartości, wartości brakujących,
                       związków ujawnionych w danych, pełna historia tego co widać na podstawie rozkłądów zmiennych 
+4b. Poprawa rozkładów zmiennych : w przypadku skrajnych wahań struktury zastanowić się co jest priorytetem : trafność na ogóle, trafność
+                                wewnątrz klas, trafność konkretnej klasy? Co można zrobić zeby wyrównać strukturę
 5. Dobór zmiennych do modelu : na podstawie korelacji, nośnika informacji, aic, wariancja, p-value, testy niezależności itp.,
                                 Przegląd metod statystycznych do doboru zmiennych PLUS krótki opis czego się spodziewać po każdej
                                 z metod i na czym bazują te metody
 6. Wybór typu modelu klasyfikacyjne : regresja logistyczna/uporzadkowana/multinom (pamiętać o wykresach od logitu), lasy losowe, xgboost. 
                                     Do każdego typu modelu pełen opis założeń plus diagnostyka
 7. Wybór typu modelu regresyjne : regresja liniowa, lasy losowe, modele nieliniowe, xgboost?, modele hierarchiczne + identyfikacja !!! 
-                                  Do każdego typu modelu pełen opis założeń plus diagnostyka
-7a. Diagnostyka modelu : w przypadku klasyfikacyjnych doskonale opisane confussionMatrix, acc, precision itd., wykresy ROC, 
+                                  Do każdego typu modelu pełen opis założeń plus diagnostyka. TRANFORMACJE ZMIENNYCH I WIELORÓWNANIÓWKA
+7a. Diagnostyka modelu : w przypadku klasyfikacyjnych doskonale opisane confussionMatrix, acc, precision, uplifty itd., wykresy ROC, 
                          poziomy odcięcia, poziomy błędów itp. 
                          w przypadku regresyjnych, RMSE , MSE, wszystkie typy błędów, Rkwadrat ( WSZYSTKIE TYPY Rkwadrat z uzasadnieniem
-                         którego powinienem się słuchać), analiza reszt i założeń wstępnych modelu
+                         którego powinienem się słuchać), analiza reszt i założeń wstępnych modelu, benchmarki dla r kwadrat wg typu zadania
 8. Ewaluacja oraz raportowanie : Pełen opis w MarkDown tego co zostało wykonane w modelu, szablon do każdego elementu działania 
                                 na zbiorze danych, pełen zestaw wykresów i wniosków z każdego momentu analizy. 
 
