@@ -2,21 +2,49 @@ Utworzę uniwersalny skrypt do analizy danych w forme data.frame do celów model
 
 W tym momencie myślę aby stworzyć skrypt, w którym data.frame przejdzie kilka kluczowych kroków:
 
-1. oczyszczenie zmiennych, utworzenie etykiet wartości, etykiet zmiennych + Kilka zmiennych, które nie będą oczyszczone dla debuggowania
+1. oczyszczenie zmiennych :
+                          wczytanie zbioru oraz automatyczne wykrycie kodowania
+                          utworzenie etykiet wartości
+                          etykiet zmiennych + Kilka zmiennych, które nie będą oczyszczone dla debuggowania
+                          utworzenie podgrup zmiennych w wektorach nazw kolumn, indep, dep, indep$numerical, indep$categorical itp.
+                          
 2. krótka historia danych: skąd pochodzą dane, jakie są moje wątpliwości, czego nie wiem, co wiem na pewno. Wszystko co może się
-                           przydać do diagnozy ewentualnych problemów
-2. Analiza braków danych: sprawdzenie typów braków danych, poszukania schematów, zwizualizowanie braków danych, 
-                          przegląd metod imputacji z parametrami i KPI'sami, przegląd typów imputacji w zależności od typu braku
-3. Eksploracja wizualizacja i związki: wyszukanie i zwizualizowanie korelacji, zwizualizowanie związków między zmienną zależną a 
-                           zmiennymi niezależnymi
-3a.Transformacja zmiennych: Poszukanie tranformacji zmiennych w celu znalezienia związków nieliniowych,
-                           związki między różnymi typami zmiennych, Testy niezależności, ANOVA/MANOVA, estymacja rozkładu zmiennej,
-                            Ipsatyzacja, mean-centrowanie, skalowanie zmiennych, normalizacja, standaryzacja ( WRAZ Z UZASADNIENIEM
-                            KIEDY MOŻNA UŻYWAĆ KTÓREGO)
-                           TESTY !!! 
+                           przydać do diagnozy ewentualnych problemów. Na pewno musza się znaleźć bloki: 
+                           źródła danych + opis datasetów co się w nich znajduje (ścieżki do plików + opisy). To głównie do Markdown'a
+                           
+2. Analiza braków danych: sprawdzenie typów braków danych, poszukania schematów 
+                          zwizualizowanie braków danych w tabelach i w wykresach, 
+                          przegląd metod imputacji z parametrami i KPI'sami, 
+                          przegląd typów imputacji w zależności od typu braku,
+                          ewentualna opcja rekodowania braków danych
+                          
+3. Eksploracja wizualizacja i związki: 
+                          TESTY i typy korelacji wraz z uzasadnieniem i założeniami,
+                          TESTY i typy niezależności zmiennych róznego rodzaju,
+                           wyszukanie i zwizualizowanie korelacji liniowych w tabelach i wykresach,
+                           zwizualizowanie związków między zmiennymi zależnymi a zmiennymi niezależnymi, 
+                             zwizualizowanie korelacji powinnno na wyjściu dać możliwość utworzenia 
+                             data.frame nazw kolumn z podanymi poziomami korelacji, istotnością oraz kategoria (wysoka,średnia,niska)
+                             korelacja w zależności od podanych cutpointów lub kwartyli.
+ 
+                           Identyfikacja związków nieliniowych wraz z wykresami w ggplocie do każdej kombinacji typów zmiennych
+                           W jaki sposób znajdować związki nieliniowe? Może loessy z jakimiś poziomami ufności? 
+                           
+3a.Eksploracja wizualizacja i związki wielowymiarowe: 
+
+                           Identyfikacja związków nieliniowych oraz zwiazków pomiędzy większą ilością zmiennych, conajmniej 3 zmiennych 
+                           Co robić w przypadku ewidentnych związków nieliniowych? 
+                           estymacja rozkładu zmiennej -> określenie z jakiego rozkładu pochodzi zmienna i może wypada sprowadzić do innego normalnego?
+                            może zależy to od metody modelowania
+                           
+3c. Transformacje i skalowanie zmiennych:
+                           Ipsatyzacja, mean-centrowanie, skalowanie zmiennych, normalizacja, standaryzacja 
+                           ( WRAZ Z UZASADNIENIEM KIEDY MOŻNA UŻYWAĆ KTÓREGO)
+                           
 4. Eksploracja Wyciągnięcie ukrytych związków: Analiza głównych składowych, analiza czynnikowa, analiza korespondencji, 
                                       segmentacja (k-means, hclust, svm) !!! wraz z algorytmem odtwarzającym i pełnymi wynikami opisowymi, 
                                       Ograniczenie wymiarów
+                                      
 4a. Walidacja danych: Opis sensowności danych, pełen opis i charakterystyka danych, przegląd wartości, wartości brakujących,
                       związków ujawnionych w danych, pełna historia tego co widać na podstawie rozkłądów zmiennych 
 4b. Poprawa rozkładów zmiennych : w przypadku skrajnych wahań struktury zastanowić się co jest priorytetem : trafność na ogóle, trafność
