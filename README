@@ -65,11 +65,12 @@ W tym momencie myślę aby stworzyć skrypt, w którym data.frame przejdzie kilk
                                     Metody unsupervised 
 7. Wybór typu modelu regresyjne : regresja liniowa, lasy losowe, modele nieliniowe, xgboost?, modele hierarchiczne + identyfikacja !!! 
                                   Do każdego typu modelu pełen opis założeń plus diagnostyka. TRANFORMACJE ZMIENNYCH I WIELORÓWNANIÓWKA
-                                  Multivariate Fay–Herriot models for estimating small area indicators
+                                  Multivariate Fay–Herriot models for estimating small area indicators                                   
 7a. Diagnostyka modelu : w przypadku klasyfikacyjnych doskonale opisane confussionMatrix, acc, precision, uplifty itd., wykresy ROC, 
                          poziomy odcięcia, poziomy błędów itp. 
                          w przypadku regresyjnych, RMSE , MSE, wszystkie typy błędów, Rkwadrat ( WSZYSTKIE TYPY Rkwadrat z uzasadnieniem
                          którego powinienem się słuchać), analiza reszt i założeń wstępnych modelu, benchmarki dla r kwadrat wg typu zadania
+8a. Modele i analiza danych przestrzennych : Generalnie wszystko o pracy z mapami i shape-file'm
 8. Ewaluacja oraz raportowanie : Pełen opis w MarkDown tego co zostało wykonane w modelu, szablon do każdego elementu działania 
                                 na zbiorze danych, pełen zestaw wykresów i wniosków z każdego momentu analizy. 
 
