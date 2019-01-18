@@ -11,7 +11,7 @@ W tym momencie myślę aby stworzyć skrypt, w którym data.frame przejdzie kilk
 1b. manipulacja danymi : szczególne przypadki dplyr (gdy zmienne są przekazywane stringami itp), 
                          szczególne przypadki tidyr:: spread i gather dokładnie wyjaśnione i wytłumaczone
                          Generalnie weź cheatsheet do tych dwóch i sprawdź co się może przydać. 
-                         Zeksplorować temat by() i pokrewnych
+                         Zeksplorować temat by() i pokrewnych. Jak wyciągnąć to w łatwy sposób w tabele ??? 
                          zekspolorować := oraz !!!
                          
 2. krótka historia danych: skąd pochodzą dane, jakie są moje wątpliwości, czego nie wiem, co wiem na pewno. Wszystko co może się
