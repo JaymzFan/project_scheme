@@ -12,7 +12,7 @@ W tym momencie myślę aby stworzyć skrypt, w którym data.frame przejdzie kilk
                          szczególne przypadki tidyr:: spread i gather dokładnie wyjaśnione i wytłumaczone
                          Generalnie weź cheatsheet do tych dwóch i sprawdź co się może przydać. 
                          Zeksplorować temat by() i pokrewnych. Jak wyciągnąć to w łatwy sposób w tabele ??? 
-                         Ogarnąć dummies() i tworzenie dummy variables 
+                         Ogarnąć dummies() i tworzenie dummy variables. Najlepiej wykorzystaj dummies::dummy.data.frame()
                          zekspolorować := oraz !!!
                          
 2. krótka historia danych: skąd pochodzą dane, jakie są moje wątpliwości, czego nie wiem, co wiem na pewno. Wszystko co może się
