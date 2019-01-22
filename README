@@ -14,6 +14,7 @@ W tym momencie myślę aby stworzyć skrypt, w którym data.frame przejdzie kilk
                          Zeksplorować temat by() i pokrewnych. Jak wyciągnąć to w łatwy sposób w tabele ??? 
                          Ogarnąć dummies() i tworzenie dummy variables. Najlepiej wykorzystaj dummies::dummy.data.frame()
                          zekspolorować := oraz !!!
+                         różne typy group_by, razem summarize_at itp. 
                          
 2. krótka historia danych: skąd pochodzą dane, jakie są moje wątpliwości, czego nie wiem, co wiem na pewno. Wszystko co może się
                            przydać do diagnozy ewentualnych problemów. Na pewno musza się znaleźć bloki: 
