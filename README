@@ -65,8 +65,10 @@ W tym momencie myślę aby stworzyć skrypt, w którym data.frame przejdzie kilk
                                     Do każdego typu modelu pełen opis założeń plus diagnostyka
                                     Metody unsupervised 
 7. Wybór typu modelu regresyjne : regresja liniowa, lasy losowe, modele nieliniowe, xgboost?, modele hierarchiczne + identyfikacja !!! 
+                                  modele mieszane
                                   Do każdego typu modelu pełen opis założeń plus diagnostyka. TRANFORMACJE ZMIENNYCH I WIELORÓWNANIÓWKA
-                                  Multivariate Fay–Herriot models for estimating small area indicators                                   
+                                  Multivariate Fay–Herriot models for estimating small area indicators
+7aa. Szeregi czasowe :   dekompozycja, prognozowanie, modele wielorównaniowe, stacjonarność, testy autokorelacji, sARIMA                                  
 7a. Diagnostyka modelu : w przypadku klasyfikacyjnych doskonale opisane confussionMatrix, acc, precision, uplifty itd., wykresy ROC, 
                          poziomy odcięcia, poziomy błędów itp. 
                          w przypadku regresyjnych, RMSE , MSE, wszystkie typy błędów, Rkwadrat ( WSZYSTKIE TYPY Rkwadrat z uzasadnieniem
@@ -75,5 +77,7 @@ W tym momencie myślę aby stworzyć skrypt, w którym data.frame przejdzie kilk
 8. Ewaluacja oraz raportowanie : Pełen opis w MarkDown tego co zostało wykonane w modelu, szablon do każdego elementu działania 
                                 na zbiorze danych, pełen zestaw wykresów i wniosków z każdego momentu analizy. 
 
+9. Deep learning
+10. KERAS, e1071, shiny, leaflet
 
                         https://www.r-bloggers.com/supervised-vs-unsupervised-learning-exploring-brexit-with-pls-and-pca/
