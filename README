@@ -51,7 +51,7 @@ W tym momencie myślę aby stworzyć skrypt, w którym data.frame przejdzie kilk
                            ( WRAZ Z UZASADNIENIEM KIEDY MOŻNA UŻYWAĆ KTÓREGO)
                            
 4. Eksploracja Wyciągnięcie ukrytych związków: Analiza głównych składowych, analiza czynnikowa, analiza korespondencji, 
-                                      segmentacja (k-means, hclust, svm) !!! wraz z algorytmem odtwarzającym i pełnymi wynikami opisowymi, 
+                                      segmentacja (k-means, hclust, svm), odpowiedni wybór liczenia odległości !!! wraz z algorytmem odtwarzającym i pełnymi wynikami opisowymi, 
                                       Ograniczenie wymiarów
                                       
 4a. Walidacja danych: Opis sensowności danych, pełen opis i charakterystyka danych, przegląd wartości, wartości brakujących,
