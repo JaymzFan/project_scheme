@@ -47,6 +47,7 @@ W tym momencie myślę aby stworzyć skrypt, w którym data.frame przejdzie kilk
                            PCA, PLS
                            
 3c. Transformacje i skalowanie zmiennych:
+                           Generalnie Feature engineering: znaleźć optymalne sposoby kategoryzacji zmiennych ciągłych wraz z jakimiś statystykami,
                            Ipsatyzacja, mean-centrowanie, skalowanie zmiennych, normalizacja, standaryzacja 
                            ( WRAZ Z UZASADNIENIEM KIEDY MOŻNA UŻYWAĆ KTÓREGO)
                            
