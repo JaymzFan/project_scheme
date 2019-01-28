@@ -38,6 +38,8 @@ W tym momencie myślę aby stworzyć skrypt, w którym data.frame przejdzie kilk
                            Identyfikacja związków nieliniowych wraz z wykresami w ggplocie do każdej kombinacji typów zmiennych
                            W jaki sposób znajdować związki nieliniowe? Może loessy z jakimiś poziomami ufności? 
                            
+                           https://www3.nd.edu/~rwilliam/stats2/l61.pdf
+                           
 3a.Eksploracja wizualizacja i związki wielowymiarowe: 
 
                            Identyfikacja związków nieliniowych oraz zwiazków pomiędzy większą ilością zmiennych, conajmniej 3 zmiennych 
