@@ -55,7 +55,8 @@ W tym momencie myślę aby stworzyć skrypt, w którym data.frame przejdzie kilk
                            
 4. Eksploracja Wyciągnięcie ukrytych związków: Analiza głównych składowych, analiza czynnikowa, analiza korespondencji, 
                                       segmentacja (k-means, hclust, svm), odpowiedni wybór liczenia odległości !!! wraz z algorytmem odtwarzającym i pełnymi wynikami opisowymi, 
-                                      Ograniczenie wymiarów, przy segmentacji stymulanty/destymulanty??? czemu trzebea
+                                      Ograniczenie wymiarów, przy segmentacji stymulanty/destymulanty??? czemu trzebea 
+                                      Dlaczeg oprzed policzeniem tablicy odległości wyrzuciłem zmienne mocno skorelowane? SGGW
                                       
 4a. Walidacja danych: Opis sensowności danych, pełen opis i charakterystyka danych, przegląd wartości, wartości brakujących,
                       związków ujawnionych w danych, pełna historia tego co widać na podstawie rozkłądów zmiennych 
