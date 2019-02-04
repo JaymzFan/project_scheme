@@ -7,6 +7,16 @@ PCA jest unsupervised, przy czym LDA jest supervised a jest tak samo kombinacją
 the purposes of PCA and LDA: PCA finds the axes with maximum variance for the whole data set where 
                                 LDA tries to find the axes for best class seperability. In practice, often a LDA is done followed by a PCA for dimensionality reduction.
 
+To follow up on a question that I received recently, 
+I wanted to clarify that feature scaling such as [standardization] does not change the overall results of an LDA 
+and thus may be optional. Yes, the scatter matrices will be different depending on 
+whether the features were scaled or not. In addition, the eigenvectors will be different as well. 
+However, the important part is that the eigenvalues will be exactly the same as well as the final projects – 
+the only difference you’ll notice is the scaling of the component axes. 
+This can be shown mathematically (I will insert the formulaes some time in future), 
+and below is a practical, visual example for demonstration.
+
+
 założenia:
 It should be mentioned that LDA assumes normal distributed data, features that are statistically independent, and identical covariance matrices for every class. However, this only applies for LDA as classifier and LDA for dimensionality reduction can also work reasonably well if those assumptions are violated. And even for classification tasks LDA seems can be quite robust to the distribution of the data:
 
