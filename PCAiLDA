@@ -5,6 +5,14 @@ PCA z natury najpierw wybiera zmienne które mają najwyższą wariancję, co ni
 PCA jest unsupervised, przy czym LDA jest supervised a jest tak samo kombinacją liniową.
 ,
 
+założenia:
+It should be mentioned that LDA assumes normal distributed data, features that are statistically independent, and identical covariance matrices for every class. However, this only applies for LDA as classifier and LDA for dimensionality reduction can also work reasonably well if those assumptions are violated. And even for classification tasks LDA seems can be quite robust to the distribution of the data:
+
+    “linear discriminant analysis frequently achieves good performances in the tasks of face and object recognition, even though the assumptions of common covariance matrix among groups and normality are often violated (Duda, et al., 2001)” (Tao Li, et al., 2006).
+
+
+
+
 Summarizing the LDA approach in 5 steps
 
 Listed below are the 5 general steps for performing a linear discriminant analysis; we will explore them in more detail in the following sections.
