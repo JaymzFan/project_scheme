@@ -3,7 +3,9 @@ PCA/LDA
 Obydwa są liniową kombinacją predyktorów, która ma na celu zmniejszenie wymiarowości.
 PCA z natury najpierw wybiera zmienne które mają najwyższą wariancję, co nie zawsze jest słuszne. 
 PCA jest unsupervised, przy czym LDA jest supervised a jest tak samo kombinacją liniową.
-,
+
+the purposes of PCA and LDA: PCA finds the axes with maximum variance for the whole data set where 
+                                LDA tries to find the axes for best class seperability. In practice, often a LDA is done followed by a PCA for dimensionality reduction.
 
 założenia:
 It should be mentioned that LDA assumes normal distributed data, features that are statistically independent, and identical covariance matrices for every class. However, this only applies for LDA as classifier and LDA for dimensionality reduction can also work reasonably well if those assumptions are violated. And even for classification tasks LDA seems can be quite robust to the distribution of the data:
