@@ -1,0 +1,35 @@
+PCA/LDA
+
+Obydwa są liniową kombinacją predyktorów, która ma na celu zmniejszenie wymiarowości.
+PCA z natury najpierw wybiera zmienne które mają najwyższą wariancję, co nie zawsze jest słuszne. 
+PCA jest unsupervised, przy czym LDA jest supervised a jest tak samo kombinacją liniową.
+,
+
+Summarizing the LDA approach in 5 steps
+
+Listed below are the 5 general steps for performing a linear discriminant analysis; we will explore them in more detail in the following sections.
+
+    Compute the d
+
+-dimensional mean vectors for the different classes from the dataset.
+Compute the scatter matrices (in-between-class and within-class scatter matrix).
+Compute the eigenvectors (ee1,ee2,...,eed
+) and corresponding eigenvalues (λλ1,λλ2,...,λλd
+) for the scatter matrices.
+Sort the eigenvectors by decreasing eigenvalues and choose k
+eigenvectors with the largest eigenvalues to form a d×k dimensional matrix WW
+(where every column represents an eigenvector).
+Use this d×k
+eigenvector matrix to transform the samples onto the new subspace. This can be summarized by the matrix multiplication: YY=XX×WW (where XX is a n×d-dimensional matrix representing the n samples, and yy are the transformed n×k-dimensional samples in the new subspace).
+
+
+Poniżej kilka uwag praktycznych:
+
+eigenvectors (the components) 
+
+For example, comparisons between classification accuracies for image recognition after using PCA or LDA show that PCA tends to outperform LDA if the number of samples per class is relatively small (PCA vs. LDA, A.M. Martinez et al., 2001). In practice, it is also not uncommon to use both LDA and PCA in combination: E.g., PCA for dimensionality reduction followed by an LDA.
+
+If we would observe that all eigenvalues have a similar magnitude, then this may be a good indicator that our data is already projected on a “good” feature space.
+
+
+źródło: https://sebastianraschka.com/Articles/2014_python_lda.html
