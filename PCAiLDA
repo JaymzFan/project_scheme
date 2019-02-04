@@ -1,26 +1,35 @@
 PCA/LDA
 
 Obydwa są liniową kombinacją predyktorów, która ma na celu zmniejszenie wymiarowości.
-PCA z natury najpierw wybiera zmienne które mają najwyższą wariancję, co nie zawsze jest słuszne. 
-PCA jest unsupervised, przy czym LDA jest supervised a jest tak samo kombinacją liniową.
+  - PCA z natury najpierw wybiera zmienne które mają najwyższą wariancję, co nie zawsze jest słuszne. 
+  - PCA jest unsupervised, przy czym LDA jest supervised a jest tak samo kombinacją liniową.
 
-the purposes of PCA and LDA: PCA finds the axes with maximum variance for the whole data set where 
-                                LDA tries to find the axes for best class seperability. In practice, often a LDA is done followed by a PCA for dimensionality reduction.
+the purposes of PCA and LDA: 
+  - PCA finds the axes with maximum variance for the whole data set where 
+  - LDA tries to find the axes for best class seperability. In practice, often a LDA is done followed by a PCA for dimensionality reduction.
 
-To follow up on a question that I received recently, 
-I wanted to clarify that feature scaling such as [standardization] does not change the overall results of an LDA 
-and thus may be optional. Yes, the scatter matrices will be different depending on 
-whether the features were scaled or not. In addition, the eigenvectors will be different as well. 
-However, the important part is that the eigenvalues will be exactly the same as well as the final projects – 
-the only difference you’ll notice is the scaling of the component axes. 
-This can be shown mathematically (I will insert the formulaes some time in future), 
-and below is a practical, visual example for demonstration.
-
+A Note About Standardization:
+  To follow up on a question that I received recently, 
+  I wanted to clarify that feature scaling such as [standardization] does not change the overall results of an LDA 
+  and thus may be optional. Yes, the scatter matrices will be different depending on 
+  whether the features were scaled or not. In addition, the eigenvectors will be different as well. 
+  However, the important part is that the eigenvalues will be exactly the same as well as the final projects – 
+  the only difference you’ll notice is the scaling of the component axes. 
+  This can be shown mathematically (I will insert the formulaes some time in future), 
+  and below is a practical, visual example for demonstration.
 
 założenia:
-It should be mentioned that LDA assumes normal distributed data, features that are statistically independent, and identical covariance matrices for every class. However, this only applies for LDA as classifier and LDA for dimensionality reduction can also work reasonably well if those assumptions are violated. And even for classification tasks LDA seems can be quite robust to the distribution of the data:
+It should be mentioned that LDA assumes: 
+  - normal distributed data, 
+  - features that are statistically independent, 
+  - and identical covariance matrices for every class. 
+However, this only applies for LDA as classifier and LDA for dimensionality reduction can also work 
+reasonably well if those assumptions are violated. And even for classification tasks LDA seems can be 
+quite robust to the distribution of the data:
 
-    “linear discriminant analysis frequently achieves good performances in the tasks of face and object recognition, even though the assumptions of common covariance matrix among groups and normality are often violated (Duda, et al., 2001)” (Tao Li, et al., 2006).
+“linear discriminant analysis frequently achieves good performances in the tasks of face and object recognition, 
+even though the assumptions of common covariance matrix among groups and normality are often violated (Duda, et al., 2001)” 
+(Tao Li, et al., 2006).
 
 
 
@@ -29,9 +38,7 @@ Summarizing the LDA approach in 5 steps
 
 Listed below are the 5 general steps for performing a linear discriminant analysis; we will explore them in more detail in the following sections.
 
-    Compute the d
-
--dimensional mean vectors for the different classes from the dataset.
+ Compute the d-dimensional mean vectors for the different classes from the dataset.
 Compute the scatter matrices (in-between-class and within-class scatter matrix).
 Compute the eigenvectors (ee1,ee2,...,eed
 ) and corresponding eigenvalues (λλ1,λλ2,...,λλd
@@ -44,12 +51,14 @@ eigenvector matrix to transform the samples onto the new subspace. This can be s
 
 
 Poniżej kilka uwag praktycznych:
-
 eigenvectors (the components) 
 
-For example, comparisons between classification accuracies for image recognition after using PCA or LDA show that PCA tends to outperform LDA if the number of samples per class is relatively small (PCA vs. LDA, A.M. Martinez et al., 2001). In practice, it is also not uncommon to use both LDA and PCA in combination: E.g., PCA for dimensionality reduction followed by an LDA.
+For example, comparisons between classification accuracies for image recognition after using PCA or LDA show 
+that PCA tends to outperform LDA if the number of samples per class is relatively small 
+(PCA vs. LDA, A.M. Martinez et al., 2001). In practice, it is also not uncommon to use both LDA and PCA in combination: 
+E.g., PCA for dimensionality reduction followed by an LDA.
 
-If we would observe that all eigenvalues have a similar magnitude, then this may be a good indicator that our data is already projected on a “good” feature space.
-
+If we would observe that all eigenvalues have a similar magnitude,
+then this may be a good indicator that our data is already projected on a “good” feature space.
 
 źródło: https://sebastianraschka.com/Articles/2014_python_lda.html
