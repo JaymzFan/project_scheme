@@ -85,7 +85,7 @@ W tym momencie myślę aby stworzyć skrypt, w którym data.frame przejdzie kilk
                                 na zbiorze danych, pełen zestaw wykresów i wniosków z każdego momentu analizy. 
 
 9. Deep learning
-10. KERAS, mlr 
+10. lattice - to easily display multivariate relationships, rCharst, publikowania interactywnych javascriptow, KERAS, mlr 
 
                         https://www.r-bloggers.com/supervised-vs-unsupervised-learning-exploring-brexit-with-pls-and-pca/
                         http://www.statystyka.az.pl/miary-rozkladu/miary-zmiennosci.php
@@ -111,4 +111,6 @@ https://www.leeds.ac.uk/educol/documents/00002182.htm
 Wczytanie PDF
 https://masalmon.eu/2019/02/11/trump-schedule/
 https://ropensci.org/technotes/2018/12/14/pdftools-20/
+
+
 
