@@ -166,4 +166,23 @@ np.random.randint(low = 0, high = 2, size = 20)
 # dostępne są rozkłady normal, logistic, uniform i wiele innych 
 
 
+# =============================================================================
+# Tworzenie danych testowych oraz Wczytywanie danych
+# =============================================================================
+
+# Tworzenie danych testowych do REGRESJI
+from sklearn.datasets import make_regression
+
+# wygenerowanie macierzy cech, wektora docelowego i prawdziwych współczynników
+features, target, coefficients = make_regression(n_samples = 1000, n_features = 150, 
+                                                 n_informative = 24, n_targets = 1, 
+                                                 noise = 0.1, coef = True,  
+                                                 random_state = 1, effective_rank = 50)
+
+# Wyświetlenie macierzy cech i wektora docelowego.
+print('Macierz cech\n', features[:3])
+print('Wektor docelowy\n', target[:3])
+
+
+
 
