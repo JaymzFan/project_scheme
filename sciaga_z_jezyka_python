@@ -1,0 +1,498 @@
+# -*- coding: utf-8 -*-
+"""
+Created on Tue Mar 26 23:30:45 2019
+
+@author: Adam
+"""
+import numpy as np 
+import pandas as pd
+import copy as copy
+# =============================================================================
+# Skróty klawiszowe
+# =============================================================================
+
+# ctrl + 4   : blok kodu
+# f9         : uruchom linię kodu
+
+# =============================================================================
+# Przydatne funkcje
+# =============================================================================
+
+# sprawdzenie typu zmiennej
+type()
+# zaokraglaniae. Jeli podam ujemną, zaokrągla do kolejno 10, 100, 1.000 
+round(13.1452, ndigits = -1)
+print()
+abs()
+float(), int()
+is, is not
+# dlugosc napisu
+len()
+# sprawdz wszystkie obiekty znajdujące się w przestrzeni obiektów
+dir()
+# enumerate tworzy iterator postaci indeks, wartosc
+enumerate()
+sort()
+# !! UWAGA. jesli wywołam metodę .sorted(), obiekt zostanie posortowany na miejscu
+any()
+all()
+# metoda 
+.count() # zwraca ile razy element powtarza się w obiekcie iterowalnym
+.index() # podaje indeks pierwszego występowania
+
+
+# =============================================================================
+# Zmienne i metody globalne
+# =============================================================================
+
+# przypisanie wyłącznie znakiem równosci. R'owy <- nie działa
+x = 5
+
+# przypisywanie kilku elementow naraz
+x,y = 1,3
+# jesli chce, aby jeden z elementow przyjal całą lewą strone
+z, *x, y = 1,2, 3
+x
+# sprawdzenie typu zmiennej
+type(x)
+
+# mamy z reguły int lub float
+x = 5.00
+type(x)
+
+# operatory arytmetyczne i logiczne tak samo jak w C++/R. Dysponujemy += -=
+
+# konwersja typów. Konwersja do int obcina końcówkę zmiennopozycyjnych. Świetnie
+# sobie radzi z napisami konwersja float. int wyrzuci błąd, jeli będzie 3.145
+int(3.6)
+float("3.23")
+
+# typy specjalne
+
+# not a number
+Nan 
+
+# wartosci logiczne
+# kazdy niepusty tekst to prawda, kazda wartosc inna od zera to prawda
+# prawde i fałsz oznaczamy tylko w jeden mozliwy sposob
+True, False
+
+# WARTOŚCI: 0, None, puste list [], puste krotki (), slowniki i zbiory prezksztalcane
+# są przez funkcję bool() na FAŁSZ
+bool(None) # , 0, [], {}
+
+# Porównania
+# !=, ==, >, < służa do porównywania WARTOŚCI
+# operator is, is not sprawdza zarówna WARTOŚĆ jak i TYP
+3 == 3.0
+3 is 3.0
+
+
+# =============================================================================
+# Napisy
+# =============================================================================
+
+# !!!! W python 3.X wszystkie napisy kodowane są w UTF-8
+
+test = "miała matka 'Synka' ?"
+print(test)
+test = 'miała matka "Synka" ?'
+print(test)
+
+# wielolinijkowca można zrobić tak:
+wielolinijek = """
+no i tak się stało
+w ten piekny wieczór"""
+print(wielolinijek)
+
+# długosc napisu 
+len("aasd")
+
+# upper, lower
+"aSdF".lower()
+"aSdF".upper()
+
+# zmienia pierwszę literę na wielką, resztę na małe
+"asdf aSdf asdf".capitalize()
+
+# nie da się zmienić elementu stringu
+x = "abcd"
+x[2] = 'f'
+type(x)
+
+# =============================================================================
+# Lista
+# =============================================================================
+# w listach można zmieniać wartosci obiektów. Lista należy do typów iterowalnych
+# Lista moze zawierać mix różnych typóW
+
+# tworzenie lisy
+lista = [5, 4, 3, 2, 1]
+print(lista)
+
+lista = [123, "asd", 23]
+type(lista)
+
+# !!! wyrażenia listotwórcze
+#[wyrazenie(nazwa) for nazwa in obiekt_iterowalny]
+
+[x**2 for x in range(5)]
+
+# lub
+#[wyrazenie(nazwa) for nazwa in obiekt_iterowalny
+#                   if warunek_logiczny(nazwa)]
+[x**2 for x in range(5) if x%2 == 0]
+
+
+# Kopia referencje/kopiowanie płytkie/kopiowanie głębokie
+lista = [0,1,2,3,4,5]
+
+# !!! To jest bardzo zaskakujące !! 
+# kopia referencji. Tak naprwadę operator przypisania tworzy nowe odwołanie (etykietę)
+# do miejsca w pamięci, ale nie rezerwuje nowego miejsca !!!
+
+x = lista
+x[3] = 5
+lista
+
+# kopiowanie płytkie. Ale to nie wystarczy 
+x = lista.copy()
+x[2] = 666
+lista
+
+# kopiowanie głębokie 
+x = [1]
+y = [x.copy(), x.copy()]
+z = y.copy()
+y
+z
+y.append(3)
+y
+z
+y[0].append(3) ### UWAGA TUTAJ 
+y
+z
+# W powyższym przykładzie problem polega natym, że obiekt y = [x.copy()] zrobił kopię,
+# ale z = y.copy() zrobił kopię płytką obiektu y, ale nie wszystkich obiektów wewnątrz y. 
+# dlatego też lepiej jest wykonać kopię rekurencyjną, czyli deepcopy()
+# Dodatkowym tłumaczeniem jest to, że przypisując y = [x.copy(), x.copy()] tak naprawdę
+# zaczynamy od inicjalizacji lewego x.copy(). kopiujemy wartosc x i mamy nową wartosc z nowym miejscem w pamięci.
+# dalej robimy to samo dla drugiego x.copy(). W tym momencie w dwóch oddzielnych miejscach mamy dwie zmienne o tej samej wartosci.
+# Dalej co się dzieje to opakowujemy je w listę ( czyli tworzymy obiekt lista z referencjami na miejsca na te zmienne utworzone przed chwilą)
+# i przypisujemy tej liscie (czyli fizycznego obiektowi w pamieci, ktory ma swoje wskazniki i definicje metod) etykiecie y, ktora jest tylko 
+# wskaznikiem. I teraz to ma sens, ze kiedy robimy kopię y, to tworzymy nową etykietę o innym miejscu w pamięci wskazującą na listę, która 
+# zawiera początkowe te same referencje !!!!!
+
+id(y)
+id(y[0])
+id(y[1])
+
+id(z)
+id(z[0])
+id(z[1])
+
+# aby temu zaradzić
+z = copy.deepcopy(y)
+
+id(z)
+id(z[0])
+id(z[1])
+
+
+
+# żeby sprawdzić id obiektu, aby sprawdzić czy dwie zmienne nei wskazują na to samo:
+id(x)
+
+
+# DOSTĘPNE METODY OBIEKTÓW ITEROWALNYCH, nie tylko listy
+min, max, any, all count, index, reversed, 
+
+ =============================================================================
+# Krotka
+# =============================================================================
+# w krotkach nie da się zmieniac wartosci obiektow. Krotka należy do typów iterowalnych
+
+# tworzenie krotki
+krotka = (5,4,3,2,1)
+
+# nie trzeba wstawiać nawiasu
+krotka = 5, 4, 3, 2, 1
+print(krotka)
+
+# =============================================================================
+# Zakresy
+# =============================================================================
+# obiekt iterowalny niezmienialny
+
+range(0,10)
+range(3,10)
+
+
+# =============================================================================
+# Słownik
+# =============================================================================
+
+# jest to kolekcja elementów klucz:wartosc
+slownik = { 
+        1 : "David",
+        2 : "Thomas"}
+print(slownik)
+
+
+# =============================================================================
+# odnoszenie sie do fragmentóW obiektow
+# =============================================================================
+
+# !!! SKŁADNIA [from : to : by]
+lista = [1,2,3,4,5,6]
+lista[0]
+# uważaj bo czwartego elementu nie wybierzesz
+lista[:3]
+lista[3:]
+# ostatni
+lista[-1]
+# co drugi obiekt zaczynajac od drugiego
+lista[1::2]
+
+
+# =============================================================================
+# Instrukcja warunkowa
+# =============================================================================
+
+x = 2 
+if x == 2:
+    print("x jest równe 2")
+else:
+    print("X nie jest równe 2")
+    
+    
+# =============================================================================
+# Pętle
+# =============================================================================
+
+
+# FOR
+# pętla for może być wykonywana jedynie na obiektach iterowalnych, tj. listy, krotki
+# bądź zakresu
+    
+for i in range(4):
+    print(i**2, end = ",")
+
+# przejscie od konca za pomocą funkcji reversed()
+for i in reversed(range(4)):
+    print(i**2, end = ',')
+
+# WHILE
+
+x = 5
+id(x)
+while x < 10:
+    print(id(x))
+    print(x+1)
+    x = x + 1
+    print(id(x))
+
+lista = [5]
+x = 5
+id(lista)
+while x < 10:
+    print(id(lista))
+    print(x+1)
+    # lista.append(3)
+    lista = lista * 3 
+    print(id(lista))
+    x = x+1
+
+    
+# =============================================================================
+# Funkcje
+# =============================================================================
+
+def potegowanie(x):
+    '''
+    Dokumentacja funkcji
+    Z reguły opisujemy parametry i typy oraz
+    wynik funkcji. Podajemy tez z reguły przykład wywołania
+    
+    >> potegowanie(5)
+    >> 25
+    '''
+    return x**2
+
+help(potegowanie)
+potegowanie(5)
+
+# jesli nie chcę niczego zwracac, zamiast return robię pass
+
+# Funkcje LAMBDA, inaczej inline function
+
+#SKŁADNIA: 
+# lambda argumenty: instrukcja_generująca_wynik
+
+dodaj3 = lambda a, b, c: a+b+c
+dodaj3(2,4,5)
+
+# przekazywanie argumentów do funkcji
+# !!! UWAGA !!
+# przekazanie argumentu używając "=" działa jako przekazanie referencji !!!!!! 
+# Nie tworzy nam się kopia obiektu
+
+lista = [1,2,3]
+
+import copy 
+def mnozprzeztrzyyy(x):
+    x = copy.copy(x)
+    x *= 3
+    return x
+
+def mnozprzeztrzyy(x):
+    print(id(x))
+    #linia poniżej nadpisze obiekt x, czyli nasz lista z globalnego srodowiska
+    x.append(3)
+    # linia ponizej zmieni juz obszar w pamieci na nowy. Od tego momentu,
+    # nie będziemy już modyfikować obiektów
+    x = x * 3
+    x[0] = 666
+    # powyższa linia nie nadpisuje obiektu lista, bo x zajmuje teraz zupelnie inny 
+    # obszar w pamięci !!!!!
+    print(id(x))
+    return x
+
+def mnozprzeztrzy(x):
+    x *= 3
+    return x
+
+# WTF !? 
+id(lista)
+mnozprzeztrzyyy(lista), lista
+id(lista)
+mnozprzeztrzyy(lista), lista
+lista
+id(lista)
+mnozprzeztrzy(lista), lista
+id(lista)
+
+# WYJASNIENIE !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+#zwykle dodawnie utworzy nowy obiekt, podczas gdy dodawanie += dodaje w miejscu,
+#czyli wywołuje metodę iadd. sprawdź jak zmienia się id miejsca w pamieci przy dodawnia
+# operator = przydziela od nowa obszar w pamięci !!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+# na inmutable obiektach to nie zadziała
+l = 1
+id(l)
+l += 4
+id(l)
+l = l +4 
+id(l)
+
+# na mutable już tak !!
+l = [1]
+id(l)
+l *= 4
+id(l)
+l = l * 4 
+id(l)
+
+# Sprawdzenie typów i wyrzucanie błędów. Obsługa błędów
+
+def potega(x):
+    assert x > 0, "Jak mam to niby zrobić?" # interpretacja: jesli falsz to wyrzuc błąd po prawej
+    return x **2
+potega(-2)
+
+# parametry domyslne
+# !!! UWAGA !!!! 
+# uwazaj na przekazywanie argumentow domyslnych, bo zachowują się identycznie
+# jak zwykle, czyli są traktowane jak referencja a nie kopia 
+#!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+def dodaj2(a, L = []):
+    L.append(a)
+    return L
+
+dodaj2(5)
+dodaj2(3)
+dodaj2(2)
+
+# argumenty można przekazywac w postaci dictionary, ktore nastepnie rozpakujemy
+# i potraktujemy jak zwykle przypisania
+def dodaj_z_listy(a, b, c, d):
+    return a+b+c+d
+
+# to samo poniżej
+dodaj_z_listy = lambda a,b,c,d: a+b+c+d
+
+# w tej linii elementy zostaną rozpakowane i podane a = a, b = b itd. Potrzebujemy dictionary
+dodaj_z_listy(**dict(a=1,b=2,c=3,d=5))
+
+
+# *args i **kwargs
+# args zbiera wszystkie podane pozycyjnie argumenty funkcji, których nie ma w definicji
+# i zbiera je w krotkę args
+# kwargs zbiera wszystie podane jawnie i wprost argumetny funkcji, których nie ma w defincji,
+# i zbiera je w dictionary
+
+# uwaga !! to nie zadziała. trzeba najpierw pobrać wszystkie mandatory argumenty, dopiero potem opcjonalne
+def funkcja1(a = 1, b, c):
+    return a,b,c
+
+def funkcja1(b,c, a = 1):
+    return a,b,c
+
+# kwargs musi byc po args
+def funkcja1(b, c, a = 1, *args, **kwargs):
+    return a,b,c,kwargs,args
+
+funkcja1(2,3)
+
+funkcja1(2,3, pszenzyto = 3)
+
+# UWAŻAĆ na zasięgi zmiennyhc. Wewnątrz ciała funkcji dostępne są zmienne globalne
+# ale na szczęscie nie da się ich modyfikować wewnątrz funkcji jako "inplace" (patrz na przykład *=)
+# za to z = z *3 zmieni już wartosci obiektu globlanego !!!! Uwazac na to 
+
+# ciekawą rzeczą jest non local x. Wtedy poszukujemy hierarchicznie zagnieżdzonej funkcji/modułu
+# zawierającego x w swojej przestrzeni nazw
+
+
+
+# =============================================================================
+# TROCHĘ NIEZBĘDNEJ TEORII i NOMENKLATURY
+# =============================================================================
+# =============================================================================
+# Obserwacja
+# Pojedyncza jednostka na poziomie obserwacji, na przykład osoba, wysokość sprzedaży lub rekord.
+# Algorytm uczenia
+# Algorytm użyty do poznania najlepszych parametrów modelu, na przykład liniowy, regresji,
+# naiwny klasyfikator bayesowski, drzew decyzyjnych itd.
+# Model
+# Dane wyjściowe trenowania algorytmu uczenia. Algorytmy uczenia trenują modele, które następnie
+# są używane do przygotowywania prognoz.
+# Parametr
+# Waga, inaczej współczynnik modelu uczenia w trakcie trenowania.
+# Hiperparametr
+# Ustawienia algorytmu uczącego, które trzeba zdefiniować przed rozpoczęciem trenowania.
+# Wydajność
+# Współczynnik używany do wartościowania modelu.
+# Strata
+# Współczynnik, który ma być maksymalizowany lub minimalizowany w trakcie trenowania.
+# Trenowanie
+# Zastosowanie algorytmu uczenia względem danych z wykorzystaniem podejścia liczbowego,
+# na przykład takie jak spadek gradientu.
+# Uczenie
+# Zastosowanie algorytmu uczenia względem danych z wykorzystaniem podejścia analitycznego.
+# Dane
+# Kolekcja obserwacji.
+# =============================================================================
+
+
+
+a = 15
+id(a)
+a = a
+b = a 
+id(b)
+b = a + 1
+id(b)
+b
