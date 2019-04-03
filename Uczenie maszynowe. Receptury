@@ -1,0 +1,169 @@
+# -*- coding: utf-8 -*-
+"""
+Apr 2019
+
+Uczenie maszynowe. Receptury
+
+@author: amkowa
+"""
+# =============================================================================
+# Skróty klawiszowe: 
+# ctrl+4 blok kodu
+# f9 uruchom linijke kodu
+# F8 uruchom styleguide check
+# ctrl+l wyczysc konsole
+# =============================================================================
+
+
+# =============================================================================
+# Array numpay'owy
+# =============================================================================
+
+import numpy as np
+from scipy import sparse
+
+# utworzenie wiersza
+vector_row = np.array([1, 2, 3, 4])
+
+# utworzenie kolumny. Jak widać, trzeba zrobić listę z elementami będącymi listą
+vector_column = np.array([[1], [2], [3], [4]])
+
+# utworzenie macierzy 3x2
+matrix = np.array([[1, 2], [3, 4], [5, 6]])
+
+# generalnie jest taka struktura jak np.mat która jest macierzą, ale nie korzysta się z niej
+# bo w większosci przypadkow procedury i tak zwracają array.
+
+# Macierz rzadka. Warto z tego korzystac bo nie tylko oszczędza pamięc ale przyspiesza
+# też obliczenia.
+
+
+
+# utworzenie macierzy rzadkiej w formacie CSR
+matrix_sparse = np.array([[1, 0, 0], [0, 0, 3]])
+matrix_sparse = sparse.csr_matrix(matrix_sparse)
+
+print(matrix_sparse)
+
+# =============================================================================
+# Wybieranie elementów wektora/macierzy
+# =============================================================================
+
+# !!! UWAGA !!! Indeksowanie jest od 0 a nie od 1
+vector = np.array([1, 2, 3, 4, 5])
+
+# pierwszy element
+vector[0]
+# wszystko do czwartego elementu, ale bez niego !!!
+vector[:3]
+# wszystko OD czwartego elementu włącznie
+vector[3:]
+# wszystko OD czwartego elementu do piątego
+vector[3:5]
+# podanie ostatniego elementu
+vector[-1]
+
+
+matrix = np.array([[1, 2, 3], [4, 5, 6], [7, 8, 9]])
+
+# pierwszy element
+matrix[0, 0]
+# pierwsze dwa wiersze, wszystkie kolumny
+matrix[:1, :]
+# pierwsze dwie kolumny, wszystkie wiersze
+matrix[:, :2]
+
+
+# =============================================================================
+# Informacje dostępne o array
+# =============================================================================
+
+# wiersz i kolumn
+matrix.shape
+
+# wyswietlenie liczby elementow (wierszexkolumny)
+matrix.size
+
+# liczba wymiarów macierzy
+matrix.ndim
+
+# =============================================================================
+# Przeprowadzenie operacji na wielu elementach macierzy/wektora
+# =============================================================================
+
+# Aby zrobić cos na wielu obiektach macierzy warto jest skorzystac z klasy
+# vectorize. W ten sposób tworzymy obiekt który zachowuje się jak pętla for
+# ale jest dużo wydajniejszym sposobem przetwarzania
+
+# utworzymy funkcję, którą chcemy przyłożyć do pojedynczego elementu
+power_5 = lambda x: x**5
+
+# utworzenie obiektu klasy vectorized
+vectorized_power_5 = np.vectorize(power_5)
+
+# wywołanie funkcji
+vectorized_power_5(matrix)
+
+# =============================================================================
+# Operacje na macierzy
+# =============================================================================
+
+# wyszukiwanie min/max w wierszach, kolumnach
+print(matrix)
+
+#### UWAGA !!!!! WBIJ SOBIE DO GŁOWY, że AXIS = 0 to kolumny a AXIS = 1 to wiersze
+# w kolumnach
+np.min(matrix, axis=0)
+np.max(matrix, axis=0)
+np.mean(matrix, axis=0)
+np.std(matrix, axis=0)
+np.var(matrix, axis=0)
+
+
+# w wierszach
+np.min(matrix, axis=1)
+np.max(matrix, axis=1)
+np.mean(matrix, axis=1)
+np.std(matrix, axis=1)
+np.var(matrix, axis=1)
+
+# =============================================================================
+# Zmiana kształtu tablicy
+# =============================================================================
+
+# biblioteka numpy ma fajną metodę do reshapowania 
+matrix = np.array([[1, 2, 3], [4, 5, 6], [7, 8, 9], [10, 11, 12]])
+print(matrix)
+
+# najpierw zczytuje wszystkie obiekty wiersz po wierszu, a póxniej układa
+# po kolei te elementy w wybranej wielkosci tablice
+matrix.reshape(2,6)
+matrix.reshape(4,3)
+matrix.reshape(3,4)
+
+# transponowanie. Bardzo prosta rzecz
+matrix.T
+
+# spłaszczanie macierzy do wektora
+matrix.flatten()
+
+# rząd macierzy
+np.linalg.matrix_rank(matrix)
+
+# dodawanie macierzy zrób po prostu używając +
+
+# =============================================================================
+# Liczby pseudolosowe
+# =============================================================================
+
+# ustawienie seed
+np.random.seed(4)
+
+# generowanie liczb z zakresu 0-1.
+# !!! UWAGA !!! zakres to tak naprawdę high minus 1 !!!!!!!!
+np.random.randint(low = 0, high = 2, size = 20)
+
+# dostępne są rozkłady normal, logistic, uniform i wiele innych 
+
+
+
